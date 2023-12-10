@@ -1,2 +1,7 @@
-﻿  main.cpp
+﻿  Graph.cpp
+D:\a使用文档\实验室\于长永老师实验室\Graph\Graph\Graph.cpp(33,5): warning C4018: “<”: 有符号/无符号不匹配
+D:\a使用文档\实验室\于长永老师实验室\Graph\Graph\Graph.cpp(42,5): warning C4018: “<”: 有符号/无符号不匹配
+D:\a使用文档\实验室\于长永老师实验室\Graph\Graph\Graph.cpp(50,26): warning C4018: “<”: 有符号/无符号不匹配
+  main.cpp
+  正在生成代码...
   Graph.vcxproj -> D:\a使用文档\实验室\于长永老师实验室\Graph\x64\Debug\Graph.exe

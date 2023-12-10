@@ -11,8 +11,8 @@ class Graph {
 private:
 	vector<vector<unsigned>> v;
 	vector<vector<unsigned>> e;
-	vector<int>type;
-	vector<vector<unsigned>>typenum;
+	vector<int>labelid;
+	vector<vector<unsigned>>labelidnum;
 	int en;//边数
 	int vn;//顶点数
 	vector<unsigned> deg;
@@ -23,7 +23,7 @@ public:
 
 	Graph(const string& filename);
 	void traverse();
-	void Type();
+	void LabelId();
 };
 // TODO: 在此处引用程序需要的其他标头。
 #endif
