@@ -14,7 +14,7 @@ Graph::Graph(const string& filename) :vn(0), en(0) {
 		istringstream iss(line, istringstream::in);
 		iss >> kind >> vn >> en;
 		v = vector<vector<unsigned>>(vn);
-		e = vector<vector<unsigned>>(en);
+		type = vector<int>();
 		deg = vector<unsigned>(vn, 0);
 		indeg = vector<unsigned>(vn, 0);
 		leaves = deque<unsigned>();
@@ -34,14 +34,14 @@ Graph::Graph(const string& filename) :vn(0), en(0) {
 				while (iss >> t) {
 					v[s].push_back(t);
 					++deg[s];
-
 				}
 			}//加入顶点集
 			else if (kind == 'e') {
 				iss >> s;
-				assert(s < en);
-				while (iss >> t) {
-					e[s].push_back(t);
+				unsigned int d;
+				assert(s < vn);
+				while (iss >> t>>d) {
+					e.push_back({s,t,d});
 					++deg[s];
 				}
 			}//加入边集
@@ -53,6 +53,8 @@ Graph::Graph(const string& filename) :vn(0), en(0) {
 			}
 		}
 	}
+	Type();
+	
 }
 
 void Graph::traverse() {
@@ -65,9 +67,41 @@ void Graph::traverse() {
 		cout << endl;
 	}
 	for (i = 0; i < en; i++) {
-		cout << 'e' << ' '<<i<<' ';
+		cout << 'e' << ' ';
 		for (j = 0; j < e[i].size(); j++)
 			cout << e[i][j] << ' ';
 		cout << endl;
+	}
+}
+
+//计算标签种类
+void Graph::Type() {
+	//确定类型
+	for (int i=0; i < vn; i++) {
+		if (type.size() == 0) type.push_back(v[i][0]);
+		else {
+			int j;
+			for (j = 0; j < type.size(); j++) {
+				if (type[j] == v[i][0]) break;
+			}
+			if (j+1>type.size()) type.push_back(v[i][0]);
+		}
+	}
+	//确定类型后，初始化个数
+	typenum = vector < vector<unsigned>>(vn, vector<unsigned>(type.size(),0));
+	for (int i = 0; i < en; i++) {
+		if (e[i].size() == 0) continue;
+		else {
+			//e[i][i]相邻顶点
+			//i是顶点
+			for (int k = 0; k < type.size(); k++) {
+				if (v[e[i][1]][0] == type[k]) {
+					typenum[e[i][0]][k]++;
+				}
+				if (v[e[i][0]][0] == type[k]) {
+					typenum[e[i][1]][k]++;
+				}
+			}
+		}
 	}
 }
