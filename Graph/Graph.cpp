@@ -57,6 +57,10 @@ Graph::Graph(const string& filename) :vn(0), en(0) {
 	
 }
 
+Graph::~Graph()
+{
+}
+
 void Graph::traverse() {
 	int i = 0;
 	int j = 0;
@@ -88,6 +92,7 @@ void Graph::LabelId() {
 		}
 	}
 	//确定类型后，初始化个数
+	sort(labelid.begin(), labelid.end());//labelid排序
 	labelidnum = vector < vector<unsigned>>(vn, vector<unsigned>(labelid.size(),0));
 	for (int i = 0; i < en; i++) {
 		if (e[i].size() == 0) continue;

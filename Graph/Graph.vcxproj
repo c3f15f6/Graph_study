@@ -20,10 +20,17 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Graph.h" />
+    <ClInclude Include="SubGraph.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Graph.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="SubGraph.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="dblp.graph" />
+    <None Include="query_dense_4_1.graph" />
+    <None Include="query_dense_4_1.graph2" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

@@ -18,6 +18,9 @@
     <ClInclude Include="Graph.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="SubGraph.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Graph.cpp">
@@ -26,5 +29,19 @@
     <ClCompile Include="main.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="SubGraph.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="dblp.graph">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="query_dense_4_1.graph2">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="query_dense_4_1.graph">
+      <Filter>资源文件</Filter>
+    </None>
   </ItemGroup>
 </Project>

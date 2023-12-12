@@ -6,9 +6,10 @@
 #include <deque>
 #include <string.h>
 #include <vector>
+#include <algorithm>//≈≈–Ú
 using namespace std;
 class Graph {
-private:
+protected:
 	vector<vector<unsigned>> v;
 	vector<vector<unsigned>> e;
 	vector<int>labelid;
@@ -20,8 +21,18 @@ private:
 	deque<unsigned> leaves;
 	vector<unsigned> roots;
 public:
-
 	Graph(const string& filename);
+	~Graph();
+
+	inline int get_vn() const {
+		return vn;
+	}
+	inline vector<vector<unsigned>> get_labelidnum(){
+		return labelidnum;
+	}
+	inline vector<int> get_labelid() {
+		return labelid;
+	}
 	void traverse();
 	void LabelId();
 };
